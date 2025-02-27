@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "242070204602",
+    "project_id": "proyectoincivisme",
+    "storage_bucket": "proyectoincivisme.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242070204602:android:98e45d1d1757f4b67fd283",
+        "android_client_info": {
+          "package_name": "com.example.proyectoincivisme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242070204602-5qeiqkdkvdpg81cgg77qk3hr29etuk45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABCAkSXmyn-cRhYT1EYGxdUuzuKzf-Xu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242070204602-5qeiqkdkvdpg81cgg77qk3hr29etuk45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
