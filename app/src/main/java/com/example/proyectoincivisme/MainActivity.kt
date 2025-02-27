@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        locationPermissionRequest = // esto antes estaba en el oncreateview pero el error me recomendó hacer un oncreate por mi cuenta para hacer este metodo
+        locationPermissionRequest =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
                 val fineLocationGranted = result[android.Manifest.permission.ACCESS_FINE_LOCATION] ?: false
                 val coarseLocationGranted = result[android.Manifest.permission.ACCESS_COARSE_LOCATION] ?: false

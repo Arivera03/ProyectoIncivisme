@@ -45,12 +45,10 @@ class NotificationsFragment : Fragment() {
         val uid: DatabaseReference = users.child( auth.uid.toString())
         val pedidos: DatabaseReference = uid.child("pedidos")
 
-        Log.d("XXX",pedidos.toString())
         MapFragment = (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
         val model: HomeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
 
         MapFragment?.getMapAsync { map ->
-            Log.d("MapDebug", "Mapa cargado correctamente")
 
 
             if (ActivityCompat.checkSelfPermission(
@@ -75,18 +73,17 @@ class NotificationsFragment : Fragment() {
 
             pedidos.addChildEventListener(object : ChildEventListener {
                 override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
-                    Log.d("CULO", "Nuevo dato: ${dataSnapshot.value}")
                     val pedido = dataSnapshot.getValue(Pedido::class.java)
-                    Log.d("XXX",pedido!!.motivoPedido)
                     pedido?.let {
-                        val aux = LatLng(it.latitud!!.toDouble(), it.longitud!!.toDouble())
-
-                        map.addMarker(
-                            MarkerOptions()
-                                .title(it.motivoPedido)
-                                .snippet(it.direccion)
-                                .position(aux)
-                        )
+                        if (it.latitud.isNotEmpty() && it.longitud.isNotEmpty()) {
+                            val aux = LatLng(it.latitud.toDouble(), it.longitud.toDouble())
+                            map.addMarker(
+                                MarkerOptions()
+                                    .title(it.motivoPedido)
+                                    .snippet(it.direccion)
+                                    .position(aux)
+                            )
+                        }
                     }
                 }
 
